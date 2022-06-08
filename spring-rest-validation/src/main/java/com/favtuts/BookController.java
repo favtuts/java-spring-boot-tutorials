@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 
 import org.springframework.http.*;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +16,7 @@ import com.favtuts.error.BookNotFoundException;
 import com.favtuts.error.BookUnSupportedFieldPatchException;
 
 @RestController
+@Validated // class level
 public class BookController {
     
     @Autowired
@@ -35,9 +38,9 @@ public class BookController {
     
     // Find
     @GetMapping("/books/{id}")
-    Book findOne(@PathVariable Long id) {
+    Book findOne(@PathVariable @Min(1) Long id) { //jsr 303 annotations
         return repository.findById(id)
-            .orElseThrow(() -> new BookNotFoundException(id));
+                .orElseThrow(() -> new BookNotFoundException(id));
     }
 
     // Save or update
