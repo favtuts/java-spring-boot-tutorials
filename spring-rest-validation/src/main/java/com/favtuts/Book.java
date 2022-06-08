@@ -9,6 +9,8 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.favtuts.error.validator.Author;
+
 
 @Entity
 public class Book {
@@ -20,6 +22,7 @@ public class Book {
     @NotEmpty(message = "Please provide a name")
     private String name;
 
+    @Author
     @NotEmpty(message = "Please provide a author")
     private String author;
 
