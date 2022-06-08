@@ -3,6 +3,8 @@ package com.favtuts;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.http.*;
 import org.springframework.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,7 @@ public class BookController {
     //return 201 instead of 200
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/books")
-    Book newBook(@RequestBody Book newBook) {
+    Book newBook(@Valid @RequestBody Book newBook) {
         return repository.save(newBook);
     }
     
