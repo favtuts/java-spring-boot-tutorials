@@ -89,3 +89,11 @@ Try to send a POST request with admin login
 	{"id":4,"name":"ABC","author":"favtuts","price":8.88}
 ]
 ```
+
+
+# 3. Integration test
+
+Run all tests
+```
+mvn test
+```
