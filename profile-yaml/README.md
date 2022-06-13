@@ -25,12 +25,10 @@ Package JAR file and run it directly
 ```
 $ mvn clean package
 
-# The 'dev' profile is configured in application.properties
-
-# Profile : dev , picks application-dev.properties 
+# Profile : dev , picks YAML
 $ java -jar target/spring-boot-profile-1.0.jar
 
-# Profile : prod, picks application-prod.properties
+# Profile : prod, picks YAML
 $ java -jar -Dspring.profiles.active=prod target/spring-boot-profile-1.0.jar
 
 # Profile : abc, a non-exists profile
