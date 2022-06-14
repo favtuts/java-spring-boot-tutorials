@@ -1,8 +1,5 @@
 package com.favtuts.sp;
 
-import com.favtuts.Book;
-import com.favtuts.repository.BookRepository;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +10,9 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Component;
+
+import com.favtuts.Book;
+import com.favtuts.repository.BookRepository;
 
 import javax.annotation.PostConstruct;
 import java.util.Collections;
@@ -62,7 +62,7 @@ public class StoredProcedure2 {
 
         log.info("Creating Store Procedures and Function...");
         jdbcTemplate.execute(SQL_STORED_PROC_REF);
-        
+
         /* Test Stored Procedure RefCursor */
         List<Book> books = findBookByName("Java");
 
@@ -86,5 +86,6 @@ public class StoredProcedure2 {
         }
 
     }
+
 
 }
