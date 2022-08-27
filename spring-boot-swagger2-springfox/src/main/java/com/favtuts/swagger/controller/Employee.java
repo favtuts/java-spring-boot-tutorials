@@ -1,5 +1,8 @@
 package com.favtuts.swagger.controller;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel(value = "Employee Model", description = "Employee Model for employee controller request response")
 public class Employee {
     Integer id;
     String name;
