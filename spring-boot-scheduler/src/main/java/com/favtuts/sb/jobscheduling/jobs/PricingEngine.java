@@ -1,5 +1,6 @@
 package com.favtuts.sb.jobscheduling.jobs;
 
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public class PricingEngine {
     }
 
 
-    @Scheduled(fixedRate = 3000)
+    //@Scheduled(fixedRate = 3000)
     public void computePriceFixedRate() throws InterruptedException {
         LOGGER.info("fixed rate computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
 
@@ -49,6 +50,23 @@ public class PricingEngine {
         Without applying @Async annotation, the method will always execute after the previous execution is completed,
         even if the fixed-rate interval is expired.
          */
+        Thread.sleep(8000);
+    }
+
+    @Scheduled(fixedRate = 3000)
+    @Async
+    public void computePriceFixedRateAsync() throws InterruptedException {
+        LOGGER.info("fixed rate async computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+
+        Random random = new Random();
+        price = random.nextDouble() * 100;
+
+        /*
+        The @Async annotation over a method allows it to execute in a separate thread.
+        As a result of this, when the previous execution of the method takes longer than the fixed-rate interval,
+        the subsequent invocation of a method will trigger even if the previous invocation is still executing.
+         */
+
         Thread.sleep(8000);
     }
 }
