@@ -118,7 +118,7 @@ public class PricingEngine {
         Thread.sleep(4000);
     }
 
-    @Scheduled(fixedRateString = "${interval-fixed-rate}")
+    //@Scheduled(fixedRateString = "${interval-fixed-rate}")
     public void computePriceFixedRateISODurationFormatConfig() throws InterruptedException {
         LOGGER.info("fixed rate iso duration config computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
 
@@ -128,5 +128,30 @@ public class PricingEngine {
         // added sleep to simulate method
         // which takes longer to execute.
         Thread.sleep(8000);
+    }
+
+    //Cron=0 * * * * * -> every minutes
+    //@Scheduled(cron = "${interval-in-cron}")
+    public void computePriceCronExpression() throws InterruptedException {
+        LOGGER.info("cron expression computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+
+        Random random = new Random();
+        price = random.nextDouble() * 100;
+
+        // added sleep to simulate method
+        // which takes longer to execute.
+        Thread.sleep(4000);
+    }
+
+    @Scheduled(cron = "@hourly")
+    public void computePriceCronMacro() throws InterruptedException {
+        LOGGER.info("cron macro computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+
+        Random random = new Random();
+        price = random.nextDouble() * 100;
+
+        // added sleep to simulate method
+        // which takes longer to execute.
+        Thread.sleep(4000);
     }
 }
