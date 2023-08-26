@@ -1,5 +1,6 @@
 package com.favtuts.sb.jobscheduling.jobs;
 
+import net.javacrumbs.shedlock.spring.annotation.SchedulerLock;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -143,9 +144,22 @@ public class PricingEngine {
         Thread.sleep(4000);
     }
 
-    @Scheduled(cron = "@hourly")
+    //@Scheduled(cron = "@hourly")
     public void computePriceCronMacro() throws InterruptedException {
         LOGGER.info("cron macro computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+
+        Random random = new Random();
+        price = random.nextDouble() * 100;
+
+        // added sleep to simulate method
+        // which takes longer to execute.
+        Thread.sleep(4000);
+    }
+
+    @Scheduled(cron = "${interval-in-cron}")
+    @SchedulerLock(name = "computingPriceScheduledTask")
+    public void computePriceCronExpressWithLocking() throws InterruptedException {
+        LOGGER.info("cron expression with lock for computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
 
         Random random = new Random();
         price = random.nextDouble() * 100;
