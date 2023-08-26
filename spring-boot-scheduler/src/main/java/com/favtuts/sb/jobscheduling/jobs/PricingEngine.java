@@ -93,9 +93,34 @@ public class PricingEngine {
         Thread.sleep(4000);
     }
 
-    @Scheduled(fixedRateString = "PT03S")
+    //@Scheduled(fixedRateString = "PT03S")
     public void computePriceFixedRateISODurationFormat() throws InterruptedException {
         LOGGER.info("fixed rate iso duration computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+
+        Random random = new Random();
+        price = random.nextDouble() * 100;
+
+        // added sleep to simulate method
+        // which takes longer to execute.
+        Thread.sleep(8000);
+    }
+
+
+    //@Scheduled(fixedDelayString = "${interval-fixed-delay}")
+    public void computePriceFixedDelayISODurationFormatConfig() throws InterruptedException {
+        LOGGER.info("fixed delay iso duration config computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+
+        Random random = new Random();
+        price = random.nextDouble() * 100;
+
+        // added sleep to simulate method
+        // which takes longer to execute.
+        Thread.sleep(4000);
+    }
+
+    @Scheduled(fixedRateString = "${interval-fixed-rate}")
+    public void computePriceFixedRateISODurationFormatConfig() throws InterruptedException {
+        LOGGER.info("fixed rate iso duration config computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
 
         Random random = new Random();
         price = random.nextDouble() * 100;
