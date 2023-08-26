@@ -53,7 +53,7 @@ public class PricingEngine {
         Thread.sleep(8000);
     }
 
-    @Scheduled(fixedRate = 3000)
+    //@Scheduled(fixedRate = 3000)
     @Async
     public void computePriceFixedRateAsync() throws InterruptedException {
         LOGGER.info("fixed rate async computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
@@ -66,6 +66,17 @@ public class PricingEngine {
         As a result of this, when the previous execution of the method takes longer than the fixed-rate interval,
         the subsequent invocation of a method will trigger even if the previous invocation is still executing.
          */
+
+        Thread.sleep(8000);
+    }
+
+    @Scheduled(initialDelay = 10000, fixedRate = 3000)
+    @Async
+    public void computePriceFixedRateAsyncInitialDelay() throws InterruptedException {
+        LOGGER.info("fixed rate async initial delay computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+
+        Random random = new Random();
+        price = random.nextDouble() * 100;
 
         Thread.sleep(8000);
     }
