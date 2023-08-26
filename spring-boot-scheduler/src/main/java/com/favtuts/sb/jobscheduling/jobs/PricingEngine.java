@@ -17,9 +17,9 @@ public class PricingEngine {
         return price;
     }
 
-    @Scheduled(fixedDelay = 2000)
-    public void computePrice() throws InterruptedException {
-        LOGGER.info("computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+    //@Scheduled(fixedDelay = 2000)
+    public void computePriceFixedDelay() throws InterruptedException {
+        LOGGER.info("fixed delay computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
 
         Random random = new Random();
         price = random.nextDouble() * 100;
@@ -27,5 +27,28 @@ public class PricingEngine {
         // added sleep to simulate method
         // which takes longer to execute.
         Thread.sleep(4000);
+
+        // The new job will always wait for the previous job to finish
+    }
+
+
+    @Scheduled(fixedRate = 3000)
+    public void computePriceFixedRate() throws InterruptedException {
+        LOGGER.info("fixed rate computing price at " + LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+
+        Random random = new Random();
+        price = random.nextDouble() * 100;
+
+        /*
+        We use the fixedRate attribute to specify the interval for executing a job at a fixed interval of time.
+        It should be used in situations where method invocations are independent.
+        The execution time of the method is not taken into consideration when deciding when to start the next job.
+         */
+
+        /*
+        Without applying @Async annotation, the method will always execute after the previous execution is completed,
+        even if the fixed-rate interval is expired.
+         */
+        Thread.sleep(8000);
     }
 }
