@@ -1,5 +1,6 @@
 package com.favtuts.sb.beansconfiguration;
 
+import com.favtuts.sb.beansconfiguration.config.SenderMessages;
 import com.favtuts.sb.beansconfiguration.service.AppService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,8 +12,11 @@ public class BeansConfigurationApplication {
 
 	private final AppService appService;
 
-	public BeansConfigurationApplication(AppService appService) {
+	private final SenderMessages senderMessages;
+
+	public BeansConfigurationApplication(AppService appService, SenderMessages senderMessages) {
 		this.appService = appService;
+		this.senderMessages = senderMessages;
 	}
 
 	public static void main(String[] args) {
@@ -20,7 +24,10 @@ public class BeansConfigurationApplication {
 	}
 
 	@PostConstruct
-	public void doExample() {
-		System.out.println("Calling bean method with this result: " + appService.calculate(123));
+	public void doExamples() {
+		System.out.println("Calling bean method with this result: " +  appService.calculate(123));
+
+		System.out.println("Calling SenderMessages: ");
+		senderMessages.send("hello universe");
 	}
 }
