@@ -12,4 +12,11 @@ public class MultiplierService {
         return value * multiplier;
     }
 
+    public void init() {
+        System.out.println("Calling init method :)");
+    }
+
+    public void destroy() {
+        System.out.println("Calling destroy method :(");
+    }
 }
