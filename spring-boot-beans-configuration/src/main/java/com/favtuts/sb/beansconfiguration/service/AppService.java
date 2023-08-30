@@ -9,7 +9,7 @@ public class AppService {
 
     private final MultiplierService multiplierService;
 
-    public AppService(@Autowired @Qualifier("multiplierService") MultiplierService multiplierService) {
+    public AppService(@Autowired @Qualifier("multiplierService-alias2") MultiplierService multiplierService) {
         this.multiplierService = multiplierService;
     }
 
