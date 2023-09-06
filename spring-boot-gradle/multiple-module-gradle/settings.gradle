@@ -1,0 +1,3 @@
+rootProject.name = 'multiple-module-gradle'
+include 'common'
+
