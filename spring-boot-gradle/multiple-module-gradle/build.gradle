@@ -1,35 +1,89 @@
-plugins {
-	id 'java'
-	id 'org.springframework.boot' version '2.7.15'
-	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
-}
+// At build.gradle root, we config for sub-module to have the shared configuration, inherit the plugin and dependencies of the parent.
 
-group = 'com.favtuts'
-version = '0.0.1-SNAPSHOT'
+// Then after that these sub-modules no need to configure any more.
 
-java {
-	sourceCompatibility = '11'
-}
+allprojects {
+	group 'com.favtuts'
+	version '1.0-SNAPSHOT'
 
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
+	apply plugin: 'java'
+	apply plugin: 'idea'
+
+	repositories {
+		mavenCentral()
+		jcenter()
 	}
 }
 
-repositories {
-	mavenCentral()
+buildscript {
+	ext {
+		springBootVersion = '2.7.15'
+		springManagementVersion = '1.0.15.RELEASE'
+		lombokVersion = '1.18.28'
+
+		guavaVersion = '32.1.2-jre'
+		commonLang3Version = '3.13.0'
+		mysqlVersion = '8.0.13'
+	}
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("io.spring.gradle:dependency-management-plugin:${springManagementVersion}")
+	}
 }
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'com.h2database:h2'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+subprojects {
+	apply plugin: 'io.spring.dependency-management'
+	apply plugin: 'org.springframework.boot'
+
+	sourceCompatibility = 11
+	targetCompatibility = 11
+
+	def defaultEncoding = 'UTF-8'
+	tasks.withType(AbstractCompile).each { it.options.encoding = defaultEncoding }
+
+	javadoc {
+		options.encoding = defaultEncoding
+		options.addBooleanOption('Xdoclint:none', true)
+	}
+
+	compileJava.dependsOn(processResources)
+
+	springBoot {
+		buildInfo()
+	}
+
+	dependencies{
+		annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+		annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+		compileOnly "org.springframework.boot:spring-boot-configuration-processor"
+		compileOnly "org.projectlombok:lombok:${lombokVersion}"
+
+		// SPRING DEPENDENCIES
+		implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+		implementation "mysql:mysql-connector-java:${mysqlVersion}"
+
+		// Utilities
+		implementation "com.google.guava:guava:${guavaVersion}"
+		implementation "org.apache.commons:commons-lang3:${commonLang3Version}"
+
+		// TEST
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	}
+
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
+project(':service') {
+	dependencies {
+		implementation project(':common')
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		implementation 'org.springframework.boot:spring-boot-devtools'
+	}
+}
+
+project(':common'){
+
 }
