@@ -3,6 +3,7 @@ package com.favtuts.sb.restapi.web;
 import com.favtuts.sb.restapi.model.Item;
 import com.favtuts.sb.restapi.repository.ItemRepository;
 import com.favtuts.sb.restapi.web.errors.ItemNotFoundException;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +27,7 @@ public class ItemController {
     }
 
     @PostMapping("/items")
-    Item createNew(@RequestBody Item newItem) {
+    Item createNew(@Valid @RequestBody Item newItem) {
         return itemRepository.save(newItem);
     }
 
