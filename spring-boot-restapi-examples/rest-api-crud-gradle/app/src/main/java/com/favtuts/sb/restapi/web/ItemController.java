@@ -2,6 +2,7 @@ package com.favtuts.sb.restapi.web;
 
 import com.favtuts.sb.restapi.model.Item;
 import com.favtuts.sb.restapi.repository.ItemRepository;
+import com.favtuts.sb.restapi.web.errors.ItemNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,8 @@ public class ItemController {
     @GetMapping("/items/{id}")
     Item getById(@PathVariable Long id) {
 
-        return itemRepository.findById(id).get();
+        return itemRepository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException(id));
     }
 
     @PostMapping("/items")
