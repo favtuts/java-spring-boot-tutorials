@@ -53,4 +53,9 @@
 		</plugins>
 	</build>
 
+	<modules>
+		<module>DataLayer</module>
+		<module>ServiceLayer</module>
+		<module>ApiLayer</module>
+	</modules>
 </project>
