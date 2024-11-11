@@ -1,6 +1,6 @@
 # Spring REST Hello World Example
 
-Article link : https://www.favtuts.com/spring-rest-hello-world-example/
+Article link : https://tuts.heomi.net/spring-rest-hello-world-example/
 
 # How to start
 ```
@@ -12,6 +12,6 @@ $ curl -v localhost:8080/books
 ```
 
 # Integration Test
-* https://www.favtuts.com/spring-rest-integration-test-example/
+* https://tuts.heomi.net/spring-rest-integration-test-example/
 
 Add CRUD tests with MockMvc or TestRestTemplate

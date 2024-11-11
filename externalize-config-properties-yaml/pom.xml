@@ -5,7 +5,7 @@
 
 	<artifactId>externalize-config-properties-yaml</artifactId>
 	<packaging>jar</packaging>
-	<url>https://www.favtuts.com</url>
+	<url>https://tuts.heomi.net</url>
 	<version>1.0</version>
 
 	<parent>

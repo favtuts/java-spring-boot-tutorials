@@ -39,9 +39,9 @@ public class SwaggerConfig {
                 .title("Java Favtuts API")
                 .description("Java Hungry API's")
                 .version("1.0.0")
-                .termsOfServiceUrl("https://www.favtuts.com")
+                .termsOfServiceUrl("https://tuts.heomi.net")
                 .license("Favtuts License")
-                .licenseUrl("https://www.favtuts.com")
+                .licenseUrl("https://tuts.heomi.net")
                 .build();
     }
 }

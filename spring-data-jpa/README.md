@@ -1,3 +1,3 @@
 # Spring Boot + Spring data JPA
 
-Article link : https://www.favtuts.com/spring-boot-spring-data-jpa/
+Article link : https://tuts.heomi.net/spring-boot-spring-data-jpa/

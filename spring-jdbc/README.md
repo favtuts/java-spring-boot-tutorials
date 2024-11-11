@@ -1,6 +1,6 @@
 # Spring Boot JDBC Examples
 
-Article link : https://www.favtuts.com/spring-boot-jdbc-examples/
+Article link : https://tuts.heomi.net/spring-boot-jdbc-examples/
 
 # How to start
 

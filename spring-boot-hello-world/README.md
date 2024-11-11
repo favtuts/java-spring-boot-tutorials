@@ -1,7 +1,7 @@
 # Spring Boot Hello World Example
 Get started with the Spring Boot application, a hello world example.
 
-* https://www.favtuts.com/spring-boot-hello-world-example/
+* https://tuts.heomi.net/spring-boot-hello-world-example/
 
 ## 1. How to start
 ```bash

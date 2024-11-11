@@ -1,6 +1,6 @@
 # Spring JdbcTemplate Querying Examples
 
-Article link : https://www.favtuts.com/spring-jdbctemplate-querying-examples/
+Article link : https://tuts.heomi.net/spring-jdbctemplate-querying-examples/
 
 # How to start
 

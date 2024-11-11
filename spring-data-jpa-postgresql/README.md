@@ -1,3 +1,3 @@
 # Spring Boot + Spring data JPA + PostgreSQL example
 
-Article link : https://www.favtuts.com/spring-boot-spring-data-jpa-postgresql/
+Article link : https://tuts.heomi.net/spring-boot-spring-data-jpa-postgresql/

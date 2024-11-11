@@ -1,6 +1,6 @@
 # Spring Boot Hello World Example – Thymeleaf
 
-Article link : https://www.favtuts.com/spring-boot-hello-world-example-thymeleaf/
+Article link : https://tuts.heomi.net/spring-boot-hello-world-example-thymeleaf/
 
 # How to start
 

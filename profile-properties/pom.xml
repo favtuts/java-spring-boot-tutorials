@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
     <name>Spring Boot Profiles Properties Example</name>
     <description>Spring Boot Profiles Properties Example</description>
-    <url>https://www.favtuts.com</url>
+    <url>https://tuts.heomi.net</url>
     <version>1.0</version>
 
     <parent>

@@ -128,7 +128,7 @@ public class CustomerRepository {
         String sql = "SELECT COUNT(*) FROM CUSTOMER";
 
         // queryForInt() is Deprecated
-        // https://www.favtuts.com/jdbctemplate-queryforint-is-deprecated/
+        // https://tuts.heomi.net/jdbctemplate-queryforint-is-deprecated/
         //int total = jdbcTemplate.queryForInt(sql);
 
         return jdbcTemplate.queryForObject(sql, Integer.class);

@@ -1,6 +1,6 @@
 # Spring Boot – Profile based properties and yaml example
 
-Article link : https://www.favtuts.com/spring-boot-profile-based-properties-and-yaml-example/
+Article link : https://tuts.heomi.net/spring-boot-profile-based-properties-and-yaml-example/
 
 # How to start
 

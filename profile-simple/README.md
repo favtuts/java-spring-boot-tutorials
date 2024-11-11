@@ -1,6 +1,6 @@
 # Spring Boot Profiles example
 
-Article link : https://www.favtuts.com/spring-boot-profiles-example/
+Article link : https://tuts.heomi.net/spring-boot-profiles-example/
 
 # How to start
 

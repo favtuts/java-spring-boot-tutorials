@@ -94,7 +94,7 @@ public class StartApplication implements CommandLineRunner {
     }
 
 
-    // https://www.favtuts.com/spring-jdbctemplate-handle-large-resultset/
+    // https://tuts.heomi.net/spring-jdbctemplate-handle-large-resultset/
     void startLargeResultSet() {
 
         // if large data, it may prompts java.lang.OutOfMemoryError: Java heap space

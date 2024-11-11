@@ -1,6 +1,6 @@
 # Spring Boot Swagger 2 Example Using Springfox
 
-* https://www.favtuts.com/spring-boot-swagger-2-example-using-springfox/
+* https://tuts.heomi.net/spring-boot-swagger-2-example-using-springfox/
 
 # How to start
 ```bash

@@ -8,7 +8,7 @@
     <artifactId>logging-log4j2</artifactId>
     <packaging>jar</packaging>
     <name>Spring Boot log4j2 Example</name>
-    <url>https://www.favtuts.com</url>
+    <url>https://tuts.heomi.net</url>
     <version>1.0</version>
 
     <parent>

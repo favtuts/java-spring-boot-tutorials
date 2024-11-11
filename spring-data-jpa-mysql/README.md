@@ -1,3 +1,3 @@
 # Spring Boot + Spring data JPA + MySQL example
 
-Article link : https://www.favtuts.com/spring-boot-spring-data-jpa-mysql/
+Article link : https://tuts.heomi.net/spring-boot-spring-data-jpa-mysql/

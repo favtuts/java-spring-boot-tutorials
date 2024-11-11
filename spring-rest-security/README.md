@@ -1,5 +1,5 @@
 # Spring REST + Spring Security Example
-* https://www.favtuts.com/spring-rest-spring-security-example/
+* https://tuts.heomi.net/spring-rest-spring-security-example/
 
 # 1. How to start
 

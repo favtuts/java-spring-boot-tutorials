@@ -1,6 +1,6 @@
 # Spring Boot Hello World Example Step By Step Using Maven And Eclipse
 
-* https://www.favtuts.com/spring-boot-hello-world-example-step-by-step-using-maven-and-eclipse/
+* https://tuts.heomi.net/spring-boot-hello-world-example-step-by-step-using-maven-and-eclipse/
 
 ## 1. How to start
 ```bash

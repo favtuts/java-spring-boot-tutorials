@@ -50,7 +50,7 @@
         -->
 
         <!-- Oracle JDBC driver -->
-        <!-- https://www.favtuts.com/connect-to-oracle-db-via-jdbc-driver-java/ -->
+        <!-- https://tuts.heomi.net/connect-to-oracle-db-via-jdbc-driver-java/ -->
         <!--
         <dependency>
             <groupId>com.oracle</groupId>

@@ -1,6 +1,6 @@
 # Spring REST Error Handling Example
 
-Article link : https://www.favtuts.com/spring-rest-error-handling-example/
+Article link : https://tuts.heomi.net/spring-rest-error-handling-example/
 
 # 1. How to start
 ```

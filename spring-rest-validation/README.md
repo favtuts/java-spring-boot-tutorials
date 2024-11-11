@@ -1,6 +1,6 @@
 # Spring REST Validation Example
 
-Article link : https://www.favtuts.com/spring-rest-validation-example/
+Article link : https://tuts.heomi.net/spring-rest-validation-example/
 
 ## 1. How to start
 ```

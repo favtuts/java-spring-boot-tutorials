@@ -7,7 +7,7 @@
 	<packaging>war</packaging>
 	<name>Spring Boot Web JSP Example</name>
 	<description>Spring Boot Web JSP Example</description>
-	<url>https://www.favtuts.com</url>
+	<url>https://tuts.heomi.net</url>
 	<version>1.0</version>
 
 	<parent>

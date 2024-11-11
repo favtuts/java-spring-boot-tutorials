@@ -1,3 +1,3 @@
 # Spring Boot REST API Example – Step-by-Step Guide
 
-* https://www.favtuts.com/spring-boot-rest-api-example-step-by-step-guide/
+* https://tuts.heomi.net/spring-boot-rest-api-example-step-by-step-guide/

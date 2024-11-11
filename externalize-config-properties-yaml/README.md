@@ -1,6 +1,6 @@
 # Spring Boot @ConfigurationProperties example
 
-Article link : https://www.favtuts.com/spring-boot-configurationproperties-example/
+Article link : https://tuts.heomi.net/spring-boot-configurationproperties-example/
 
 ## 1. How to start
 ```

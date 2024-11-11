@@ -1,6 +1,6 @@
 # Spring Boot JDBC Stored Procedure Examples
 
-Article link : https://www.favtuts.com/spring-boot-jdbc-stored-procedure-examples/
+Article link : https://tuts.heomi.net/spring-boot-jdbc-stored-procedure-examples/
 
 # How to start
 
