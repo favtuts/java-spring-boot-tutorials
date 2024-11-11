@@ -39,3 +39,7 @@ Full source code for Spring Boot Tutorials: https://tuts.heomi.net/spring-boot-t
 * [Spring Boot + JUnit 5 + Mockito](./testing-junit5-mockito/README.md)
 * [Spring Boot Hello World Example - Thymeleaf](./web-thymeleaf/README.md)
 * [Spring Boot YAML example](./yaml-simple/README.md)
+
+===
+
+* [Keycloak Integration with Spring Security 6](./spring-security-keycloak/README.md)
