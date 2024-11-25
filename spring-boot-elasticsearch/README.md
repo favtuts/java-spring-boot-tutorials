@@ -44,6 +44,17 @@ To run an older version of the application, the first thing to do is to start El
 $ docker-compose -f docker-compose up -d
 ``` 
 
+To specific port:
+```bash
+$ docker-compose -f docker-compose-fix-port up -d
+$ docker compose -f docker-compose-fix-port.yml up -d
+```
+
+To stop
+```bash
+$ docker compose down
+```
+
 It brings Elasticsearch up on a single node cluster with the cluster name `elasticsearch`.
 
 Then you can run the application like below:
@@ -58,10 +69,14 @@ If your Elasticsearch URI is not `localhost` is different simply override the fo
 
 Once everything is up and running open the browser and go to [http://localhost:8080](http://localhost:8080). You should see Swagger to interact with.
 
+```
+http://localhost:8080/swagger-ui.html
+```
+
 ## Run Testcontainers tests
 
 The integration tests are written relying on [Testcontainers](https://www.testcontainers.org/) to spin up Elasticsearch on the spot and run tests against it.
-To know more about container testing read this tutorial: [Integration test with Testcontainers in Java](https://www.geekyhacker.com/integration-test-with-testcontainers-in-java/)
+To know more about container testing read this tutorial: [Integration test with Testcontainers in Java](https://tuts.heomi.net/integration-test-with-testcontainers-in-java/)
 
 To run the integration test (using Testcontainers) just run the below command:
 
