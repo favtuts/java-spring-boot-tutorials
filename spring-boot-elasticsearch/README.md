@@ -2,3 +2,8 @@
 * https://tuts.heomi.net/getting-started-with-spring-data-elasticsearch/
 
 
+# Spring Boot Initializr
+
+![init-sb](./images/spring-boot-elasticsearch-demo-initializr.png)
+
+
