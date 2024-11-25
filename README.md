@@ -43,3 +43,4 @@ Full source code for Spring Boot Tutorials: https://tuts.heomi.net/spring-boot-t
 ===
 
 * [Keycloak Integration with Spring Security 6](./spring-security-keycloak/README.md)
+* [Getting started with Spring Data Elasticsearch](./spring-boot-elasticsearch/README.md)
