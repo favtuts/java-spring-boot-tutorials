@@ -46,3 +46,4 @@ Full source code for Spring Boot Tutorials: https://tuts.heomi.net/spring-boot-t
 * [Getting started with Spring Data Elasticsearch](./spring-boot-elasticsearch/README.md)
 * [Spring Boot with PostgreSQL: A Step-by-Step Guide](./spring-boot-postgresql/README.md)
 * [How to Build a CRUD REST API Using Spring Boot](./spring-boot-crud-restapi/README.md)
+* [How to Use Flyway for Database Migrations in Spring Boot Applications](./spring-boot-flyway/README.md)
