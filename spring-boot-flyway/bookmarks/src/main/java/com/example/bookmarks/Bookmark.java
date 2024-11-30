@@ -34,6 +34,14 @@ public class Bookmark {
     @Column(name = "updated_at")
     private Instant updatedAt;
 
+    @ColumnDefault("'DRAFT'")
+    @Column(name = "status", nullable = false)
+    private String status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     public Long getId() {
         return id;
     }
@@ -74,4 +82,19 @@ public class Bookmark {
         this.updatedAt = updatedAt;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }

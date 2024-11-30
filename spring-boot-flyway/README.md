@@ -50,3 +50,94 @@ CREATE TABLE bookmarks
 ```
 
 Now, if you run the Spring Boot application, the first Flyway migration ( `V1__create_bookmarks_table.sql`) will be applied and the `bookmarks` table will be created.
+
+# Modify JPA entities and generate new migrations
+
+Let’s say we want to categorize the bookmarks and also add an additional column called `status` to indicate whether a bookmark is in `DRAFT` or `PUBLISHED` state.
+
+Create a new JPA entity called `Category` as follows:
+```java
+package com.jetbrains.bookmarks;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "categories")
+public class Category {
+   @Id
+   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_id_generator")
+   @SequenceGenerator(name = "category_id_generator", sequenceName = "category_id_seq")
+   private Long id;
+
+   private String name;
+
+   // setters and getters
+}
+```
+
+Update our `Bookmark` entity to add a `String` type property called `status` with a default value of `DRAFT` and a `ManyToOne` association with Categ`ory as follows:
+```java
+package com.jetbrains.bookmarks;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import org.hibernate.annotations.ColumnDefault;
+
+import java.time.Instant;
+
+@Entity
+@Table(name = "bookmarks")
+public class Bookmark {
+   //...
+   @ColumnDefault("'DRAFT'")
+   @Column(name = "status", nullable = false)
+   private String status;
+  
+   @ManyToOne(fetch = FetchType.LAZY)
+   @JoinColumn(name = "category_id")
+   private Category category;
+
+   // setters and getters
+}
+```
+
+To make the corresponding changes to the database schema, we need to create the second Flyway migration script named `V2__add_status_category_to_bookmarks.sql`.
+```sql
+CREATE SEQUENCE IF NOT EXISTS category_id_seq START WITH 1 INCREMENT BY 50;
+
+CREATE TABLE categories
+(
+   id   BIGINT NOT NULL,
+   name VARCHAR(255),
+   CONSTRAINT pk_categories PRIMARY KEY (id)
+);
+
+ALTER TABLE bookmarks
+   ADD category_id BIGINT;
+
+ALTER TABLE bookmarks
+   ADD status VARCHAR(255) DEFAULT 'DRAFT';
+
+ALTER TABLE bookmarks
+   ALTER COLUMN status SET NOT NULL;
+
+ALTER TABLE bookmarks
+   ADD CONSTRAINT FK_BOOKMARKS_ON_CATEGORY FOREIGN KEY (category_id) REFERENCES categories (id);
+```
+
+As you can see, the second Flyway migration script generated contains the SQL script to create a `categories` table, as well as add a `category_id` foreign key and a `status` column with a default value of `DRAFT` to the `bookmarks` table.
+
+If you restart the Spring Boot application and check the database, the `categories` table should have been created and the `category_id` and `status` columns should have been added to the `bookmarks` table.
