@@ -42,6 +42,9 @@ public class Bookmark {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @Column(name = "published_at")
+    private Instant publishedAt;
+
     public Long getId() {
         return id;
     }
@@ -96,5 +99,13 @@ public class Bookmark {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Instant getPublishedAt() {
+        return publishedAt;
+    }
+
+    public void setPublishedAt(Instant publishedAt) {
+        this.publishedAt = publishedAt;
     }
 }

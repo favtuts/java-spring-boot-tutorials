@@ -141,3 +141,57 @@ ALTER TABLE bookmarks
 As you can see, the second Flyway migration script generated contains the SQL script to create a `categories` table, as well as add a `category_id` foreign key and a `status` column with a default value of `DRAFT` to the `bookmarks` table.
 
 If you restart the Spring Boot application and check the database, the `categories` table should have been created and the `category_id` and `status` columns should have been added to the `bookmarks` table.
+
+# Update existing JPA entities from database schema changes
+
+Let’s create a third Flyway migration script with file name `V3__add_published_at_col_to_bookmarks.sql`
+```sql
+ALTER TABLE bookmarks ADD published_at timestamp;
+```
+
+We are now adding a new column called `published_at` to the bookmarks table.
+
+Restart the Spring Boot application and ensure that the `published_at` column has been added to the `bookmarks` table.
+
+The `Bookmark` entity will then be updated to add the `publishedAt` property as follows:
+```java
+package com.jetbrains.bookmarks;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import org.hibernate.annotations.ColumnDefault;
+
+import java.time.Instant;
+
+
+@Entity
+@Table(name = "bookmarks")
+public class Bookmark {
+   //...
+  
+   @Column(name = "published_at")
+   private Instant publishedAt;
+
+   // setters and getters
+}
+```
+
+# Handling Rollbacks
+
+The Flyway Community Edition doesn’t support automatic rollbacks. When you need to roll back a migration, you can create a new migration script to undo the changes. This script should be named with a higher version number than the original migration.
+
+Create a file named `V4__remove_published_at_col_on_bookmarks.sql`:
+```sql
+ALTER TABLE bookmarks DROP published_at role;
+```
+Then run the migration as usual to apply the rollback. This will remove the role column from the users table as defined in the script.
+
+The Flyway Pro and Enterprise Editions offer additional features like undo and repair commands for automatic rollback and fixing failed migrations. You can explore these options if you require more advanced rollback capabilities.
