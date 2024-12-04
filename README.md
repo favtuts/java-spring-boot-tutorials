@@ -47,3 +47,4 @@ Full source code for Spring Boot Tutorials: https://tuts.heomi.net/spring-boot-t
 * [Spring Boot with PostgreSQL: A Step-by-Step Guide](./spring-boot-postgresql/README.md)
 * [How to Build a CRUD REST API Using Spring Boot](./spring-boot-crud-restapi/README.md)
 * [How to Use Flyway for Database Migrations in Spring Boot Applications](./spring-boot-flyway/README.md)
+* [How to create a Spring Boot console application](./spring-boot-console-app/README.md)
