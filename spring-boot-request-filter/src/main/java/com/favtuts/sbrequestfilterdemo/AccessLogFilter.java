@@ -10,6 +10,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
+import org.springframework.web.util.ContentCachingRequestWrapper;
+import org.springframework.web.util.ContentCachingResponseWrapper;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -24,10 +26,20 @@ public class AccessLogFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        byte[] requestBody = StreamUtils.copyToByteArray(request.getInputStream());
+        ContentCachingRequestWrapper req = new ContentCachingRequestWrapper(request);
+        ContentCachingResponseWrapper resp = new ContentCachingResponseWrapper(response);
+
+        // Execution request chain
+        filterChain.doFilter(req, resp);
+
+        // Get Cache
+        byte[] requestBody = req.getContentAsByteArray();
+        byte[] responseBody = resp.getContentAsByteArray();
 
         log.info("request body = {}", new String(requestBody, StandardCharsets.UTF_8));
+        log.info("response body = {}", new String(responseBody, StandardCharsets.UTF_8));
 
-        filterChain.doFilter(request, response);
+        // Finally remember to respond to the client with the cached data.
+        resp.copyBodyToResponse();
     }
 }
