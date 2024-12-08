@@ -8,3 +8,14 @@ Gradle project type
 ![init-sb-gralde](./images/spring-boot-console-application-initializr.png)
 
 
+# Run the console application
+
+Run without arguments
+```bash
+$ ./gradlew bootRun
+```
+
+Run with argumments
+```bash
+$ ./gradlew bootRun --args "Mike"
+```
