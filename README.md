@@ -48,4 +48,5 @@ Full source code for Spring Boot Tutorials: https://tuts.heomi.net/spring-boot-t
 * [How to Build a CRUD REST API Using Spring Boot](./spring-boot-crud-restapi/README.md)
 * [How to Use Flyway for Database Migrations in Spring Boot Applications](./spring-boot-flyway/README.md)
 * [How to create a Spring Boot console application](./spring-boot-console-app/README.md)
-* [ How to Record Request and Response Bodies in Sping Boot Applications](./spring-boot-request-filter/README.md)
+* [How to Record Request and Response Bodies in Sping Boot Applications](./spring-boot-request-filter/README.md)
+* [Validation with Spring Boot – the Complete Guide](./spring-boot-validation/README.md)
